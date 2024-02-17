@@ -34,7 +34,8 @@ def add_two_numbers(number1: float, number2: float):
 @app.get("/getprice")
 def getFlipkartPrice(productUrl: str):
     head={"User Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"}
-    page=req.get(productUrl)
+    # page=req.get(productUrl)
+    page = req.get(productUrl, timeout=30)  # Set timeout to 30 seconds
     soup= bs(page.content, "html.parser")
     data = soup.find("div", class_="_30jeq3")
     price=data.text.split()[0].replace('₹','').replace(',','')
