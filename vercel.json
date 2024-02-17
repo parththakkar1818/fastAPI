@@ -11,7 +11,7 @@
             "src":"/(.*)",
             "dest":"app/api.py"
         }
-    ]
+    ],
     "functions": {
         "api/getprice.py": {
             "memory": 3008,
