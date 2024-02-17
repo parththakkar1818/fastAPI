@@ -1,15 +1,29 @@
 {
-    "version":2,
-    "builds":[
+    "version": 2,
+    "builds": [
         {
-            "src":"/app/api.py",
-            "use":"@vercel/python"
+            "src": "/app/api.py",
+            "use": "@vercel/python"
         }
     ],
-    "routes":[
+    "routes": [
         {
-            "src":"/(.*)",
-            "dest":"app/api.py"
+            "src": "/getprice",
+            "methods": ["GET"],
+            "dest": "/app/api.py",
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "config": {
+                "api": {
+                    "memory": 3008,
+                    "maxDuration": 30
+                }
+            }
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/app/api.py"
         }
     ]
 }
