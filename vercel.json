@@ -1,19 +1,17 @@
 {
-    "version":2,
-    "builds":[
-        {
-            "src":"/app/api.py",
-            "use":"@vercel/python"
-        }
-    ],
-    "routes":[
-        {
-            "src":"/(.*)",
-            "dest":"app/api.py"
-        }
-    ]
-}
-{
+  "version": 2,
+  "builds": [
+    {
+      "src": "app/api.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "app/api.py"
+    }
+  ],
   "functions": {
     "app/api.py": {
       "memory": 3008,
